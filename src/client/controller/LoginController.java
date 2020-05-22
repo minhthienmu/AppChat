@@ -1,6 +1,7 @@
 package client.controller;
 
 import client.Client;
+import client.MainClient;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -17,6 +18,7 @@ import static message.Protocols.*;
 
 public class LoginController implements Initializable {
     Client client = new Client("localhost", 8888);
+    //public Message reply = new Message(0, null,null);
 
     @FXML
     private JFXTextField username;
@@ -25,14 +27,18 @@ public class LoginController implements Initializable {
     @FXML
     private JFXButton btnlogin;
 
+
     @FXML
     void Login(ActionEvent event) throws IOException, ClassNotFoundException {
         String user = username.getText();
         String pass = password.getText();
         Message request = new Message(LOGIN_REQUEST, user, pass);
         client.Send_Object(request);
-        client.Receive_Object();
+        if (client.Check_Login()) {
+            MainClient.showAppView(client);
+        }
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

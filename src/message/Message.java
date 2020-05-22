@@ -3,9 +3,9 @@ package message;
 import java.io.Serializable;
 
 public class Message implements Serializable {
-    private String user;
-    private String body;
-    private int protocol;
+    private final String user;
+    private final String body;
+    private final int protocol;
 
     public Message(int protocol, String user, String body) {
         this.user = user;

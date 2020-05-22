@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="client.controller.ChatViewController"
-            prefHeight="400.0" prefWidth="600.0">
 
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.controller.ChatViewController">
+   <children>
+      <JFXTextArea fx:id="msg" layoutX="33.0" layoutY="332.0" prefHeight="0.0" prefWidth="442.0" promptText="text here" />
+      <JFXButton layoutX="497.0" layoutY="339.0" onAction="#Sendmsg" text="send" textFill="RED" />
+      <JFXButton layoutX="175.0" layoutY="147.0" onAction="#Logout" text="Log out" />
+   </children>
 </AnchorPane>
